@@ -36,6 +36,15 @@ async def create_reservation(reservation: dict):
     res = await Reservation.create(**reservation)
     return {"message": "Rezerwacja dodana", "reservation": res}
 
+@app.get("/test-api/")
+async def test_api():
+    return {"message": "Api dziala!"}
+
+@app.get("/authors/")
+async def authors():
+    authors = os.getenv("AUTHORS", "Unknown Authors")
+    return {"message": authors}
+
 register_tortoise(
     app,
     db_url=DATABASE_URL,
