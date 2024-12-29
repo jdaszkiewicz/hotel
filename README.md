@@ -1,7 +1,24 @@
-Python 3.11.5
+Python 3.11.5 
 
-uvicorn main:app --reload
+Backend
+---
+instalacja : 
+<code> pip install -r requirements.txt</code>
 
-npm run dev
+uruchomienie :
+<code>uvicorn main:app --reload</code>
 
-pytest test_main.py
+test : 
+<code> pytest test_main.py </code>
+
+Front
+---
+instalacja : 
+<code>npm install</code>
+
+uruchomienie :
+<code>npm run dev</code>
+
+
+
+
