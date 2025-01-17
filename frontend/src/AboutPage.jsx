@@ -16,9 +16,9 @@ const AboutPage = () => {
 
   return (
     <Container className="my-4">
-      <h2>Aplikacja napisana przez :</h2>
-      <p>{authors}</p>
-      <p>Technologie : Python + React</p>
+      <h2 className="text-center mb-4">O aplikacji</h2>
+      <p><b>Autorzy:</b> {authors}</p>
+      <p><b>Technologie:</b> Python + React</p>
     </Container>
   );
 };

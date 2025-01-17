@@ -20,12 +20,16 @@ const TestPage = () => {
 
   return (
     <Container className="my-4">
-      <h2 className="text-center">Testowanie API</h2>
-      <Button variant="primary" onClick={handleTest} className="mt-3">
-        Test API
+      <h2 className="text-center mb-4">Testowanie API</h2>
+      <Button 
+        variant="primary" 
+        onClick={handleTest} 
+        className="button mt-3"
+      >
+        Testuj API
       </Button>
-      {message && <Alert variant="success" className="mt-3">{message}</Alert>}
-      {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
+      {message && <div className="alert alert-success mt-3">{message}</div>}
+      {error && <div className="alert alert-danger mt-3">{error}</div>}
     </Container>
   );
 };

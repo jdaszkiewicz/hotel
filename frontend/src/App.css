@@ -1,42 +1,155 @@
+/* Main layout */
 #root {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Calendar styles */
+.calendar {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.calendar-day {
+  position: relative;
+  height: 80px;
+  vertical-align: top;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.calendar-day.reserved {
+  background-color: rgba(25, 135, 84, 0.1);
+  position: relative;
+}
+
+.calendar-day.reserved::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--success);
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.calendar-header button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .calendar {
+    margin: 1rem;
+  }
+  
+  .calendar-day {
+    height: 60px;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--dark);
+  color: white;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s;
+}
+
+.calendar-header button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+  padding: 1rem;
   text-align: center;
+  border: 1px solid var(--light);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.calendar-day {
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calendar-day:hover {
+  background-color: var(--light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.calendar-day.reserved {
+  background-color: color-mix(in srgb, var(--info) 20%, white);
+  position: relative;
 }
 
-.card {
-  padding: 2em;
+.calendar-day.empty {
+  border: none;
+  background-color: var(--light);
 }
 
-.read-the-docs {
-  color: #888;
+.reservation-details {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  background: white;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 200px;
+  text-align: left;
+}
+
+.reservation-item {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--light);
+}
+
+.reservation-item:last-child {
+  border-bottom: none;
 }
