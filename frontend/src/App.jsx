@@ -7,6 +7,7 @@ import TestPage from "./TestPage";
 import AboutPage from "./AboutPage";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
+import Chat from "./Chat";
 
 const App = () => {
   const [theme, setTheme] = useState('light');
@@ -65,6 +66,9 @@ const App = () => {
               {isAuthenticated ? (
                 <>
                   <li className="nav-item">
+                    <Link className="nav-link" to="/chat">Chat</Link>
+                  </li>
+                  <li className="nav-item">
                     <button className="nav-link" onClick={handleLogout}>Wyloguj</button>
                   </li>
                 </>
@@ -88,6 +92,7 @@ const App = () => {
           <Route path="/aplikacja" element={<AboutPage />} />
           <Route path="/logowanie" element={<LoginPage onLogin={handleLogin} />} />
           <Route path="/rejestracja" element={<RegisterPage />} />
+          <Route path="/chat" element={isAuthenticated ? <Chat /> : <Navigate to="/logowanie" />} />
         </Routes>
       </div>
       <button className="theme-switcher" onClick={toggleTheme}>
